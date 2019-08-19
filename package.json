@@ -1,0 +1,24 @@
+{
+  "name": "rocket-grid",
+  "version": "1.0.0",
+  "description": "A responsive grid system by rocketflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass assets/scss/gridsystem.scss assets/css/rocket-grid.css",
+    "build:min": "sass assets/scss/gridsystem.scss:assets/css/rocket-grid.min.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ygorneves10/rocket-grid.git"
+  },
+  "author": "Ygor Neves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ygorneves10/rocket-grid/issues"
+  },
+  "homepage": "https://github.com/ygorneves10/rocket-grid#readme",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

@@ -1,0 +1,108 @@
+$cols: 12;
+$breakpoints: (sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px);
+$displays: flex,
+block,
+none;
+
+$directions: row,
+column;
+
+.col {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    //codepen
+    border: solid thin #000;
+    text-align: center;
+    padding: 15px;
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        //codepen
+        margin-bottom: 15px;
+    }
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+@function getContainerWidth($bp) {
+
+    $result: 100%;
+
+    @if $bp==576px {
+        $result: 540px;
+    }
+
+    @if $bp==768px {
+        $result: 720px;
+    }
+
+    @if $bp==992px {
+        $result: 960px;
+    }
+
+    @if $bp==1200px {
+        $result: 1140px;
+    }
+
+    @return $result;
+}
+
+@for $i from 1 through $cols {
+    .col-#{$i} {
+        width: percentage($i/$cols);
+    }
+}
+
+@each $display in $displays {
+    .d-#{$display} {
+        display: $display;
+    }
+}
+
+@each $direction in $directions {
+    .flex-#{$direction} {
+        display: $direction;
+    }
+}
+
+@each $name,
+$bp in $breakpoints {
+    @media (min-width: #{$bp}) {
+        @for $i from 1 through $cols {
+            .col-#{$name}-#{$i} {
+                width: percentage($i/$cols);
+            }
+        }
+
+        @each $display in $displays {
+            .d-#{$name}-#{$display} {
+                display: $display;
+            }
+        }
+
+        @each $direction in $directions {
+            .flex-#{$name}-#{$direction} {
+                flex-direction: $direction;
+            }
+        }
+
+        .container {
+            width: getContainerWidth($bp);
+        }
+    }
+}
