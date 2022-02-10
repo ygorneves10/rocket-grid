@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/ygorneves10/rocket-grid#readme",
   "dependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.0"
   }
 }
